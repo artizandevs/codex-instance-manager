@@ -31,7 +31,7 @@
   <Grid.RowDefinitions><RowDefinition Height="72"/><RowDefinition Height="*"/><RowDefinition Height="52"/></Grid.RowDefinitions>
   <Grid.ColumnDefinitions><ColumnDefinition Width="232"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
   <Border Grid.RowSpan="3" Background="#171717" BorderBrush="#2E2E2E" BorderThickness="0,0,1,0"/>
-  <StackPanel Orientation="Horizontal" Margin="22,0" VerticalAlignment="Center"><Border x:Name="BrandLogo" Width="30" Height="36" Background="#ECECEC" Margin="0,0,12,0"/><StackPanel VerticalAlignment="Center"><TextBlock Text="Codex" FontSize="15" FontWeight="SemiBold"/><TextBlock Text="Instance Manager" FontSize="11" Foreground="#929292" Margin="0,2,0,0"/></StackPanel></StackPanel>
+  <StackPanel Orientation="Horizontal" Margin="22,0" VerticalAlignment="Center"><Border Width="40" Height="40" Background="#B7B7B7" CornerRadius="8" Margin="0,0,12,0"><Image x:Name="BrandLogo" Margin="3"/></Border><StackPanel VerticalAlignment="Center"><TextBlock Text="Codex" FontSize="15" FontWeight="SemiBold"/><TextBlock Text="Instance Manager" FontSize="11" Foreground="#929292" Margin="0,2,0,0"/></StackPanel></StackPanel>
   <Border Grid.Column="1" BorderBrush="#343434" BorderThickness="0,0,0,1" Padding="32,0"><TextBlock Text="Manage instances" VerticalAlignment="Center" FontSize="14" Foreground="#C3C3C3"/></Border>
   <Grid Grid.Row="1" Margin="16,12,16,20"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
    <Button x:Name="NewButton" Content="+  New instance" Background="Transparent" BorderBrush="#3B3B3B" Margin="0,0,0,24" HorizontalContentAlignment="Left"/>
@@ -70,9 +70,7 @@ if (Test-Path -LiteralPath $logoPath) {
     $brandImage.CacheOption = [Windows.Media.Imaging.BitmapCacheOption]::OnLoad
     $brandImage.UriSource = $logoUri
     $brandImage.EndInit(); $brandImage.Freeze()
-    $logoMask = New-Object Windows.Media.ImageBrush($brandImage)
-    $logoMask.Stretch = [Windows.Media.Stretch]::Uniform
-    $script:Window.FindName('BrandLogo').OpacityMask = $logoMask
+    $script:Window.FindName('BrandLogo').Source = $brandImage
     $script:Window.Icon = $brandImage
 }
 

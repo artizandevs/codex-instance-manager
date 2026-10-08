@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2 — 2026-10-08
+
+- Place white CIM text directly over the black knot in manager branding and its desktop icon.
+- Preserve the full-color logo in the dark sidebar so the white overlay stays readable.
+- Refresh website assets and preview; launched-instance icons keep their plain black logo.
+
 ## 0.2.1 — 2026-10-08
 
 - Restyle the manager with a Codex-inspired dark palette, charcoal sidebar, subtle borders, neutral selections, and a white primary action.
