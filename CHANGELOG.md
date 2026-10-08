@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-10-08
+
+- Restyle the manager with a Codex-inspired dark palette, charcoal sidebar, subtle borders, neutral selections, and a white primary action.
+- Add dark native window chrome, rounded text entry, custom checkbox states, and subdued scrollbars.
+- Refresh the public app preview; account launch and import behavior stays the same.
+
 ## 0.2.0 — 2026-10-08
 
 - Simplify the manager to named instances, desktop shortcuts, and opening Codex.
