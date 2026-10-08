@@ -49,8 +49,13 @@ $logoPath = Join-Path $PSScriptRoot 'assets\logo-cim.png'
 if (-not (Test-Path -LiteralPath $logoPath)) { $logoPath = Join-Path (Split-Path -Parent $PSScriptRoot) 'assets\logo-cim.png' }
 if (Test-Path -LiteralPath $logoPath) {
     $logoUri = New-Object Uri($logoPath)
-    $script:Window.FindName('BrandLogo').Source = New-Object Windows.Media.Imaging.BitmapImage($logoUri)
-    $script:Window.Icon = New-Object Windows.Media.Imaging.BitmapImage($logoUri)
+    $brandImage = New-Object Windows.Media.Imaging.BitmapImage
+    $brandImage.BeginInit()
+    $brandImage.CacheOption = [Windows.Media.Imaging.BitmapCacheOption]::OnLoad
+    $brandImage.UriSource = $logoUri
+    $brandImage.EndInit(); $brandImage.Freeze()
+    $script:Window.FindName('BrandLogo').Source = $brandImage
+    $script:Window.Icon = $brandImage
 }
 $script:Controls = @{}
 foreach ($name in @('NewButton','InstanceList','BrainPath','EditorTitle','KindLabel','NameField','RepoField','BrowseRepo','WorktreeCheck','BaseField','BranchField','WorkspaceField','PromptField','ChatField','BrainCheck','ShortcutCheck','HomeInfo','SaveButton','LaunchButton','FolderButton','RemoveButton','StatusText')) { $script:Controls[$name] = $script:Window.FindName($name) }
