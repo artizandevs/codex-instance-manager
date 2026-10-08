@@ -1,59 +1,35 @@
 Codex Instance Manager for Windows 11
 
-Run Install.cmd to install for the current Windows user. No administrator
-installation or additional runtime is needed. Open the desktop shortcut
-"Codex Instance Manager". Open your default Codex window normally; this manager
-only lists and launches additional instances. Existing
-Account 2/3 profiles are imported only when found. Add other named instances.
+Run Install.cmd, then open the Codex Instance Manager desktop shortcut.
+Choose New instance, name it, and click Save or Open Codex.
+Save creates a desktop shortcut. Sign into the intended account on first use.
+Keep your main Codex window open normally; it is not managed by this tool.
 
-Select an instance or click New instance. Set its name, repository and optional
-Git worktree. Browse loads local/remote branches. Choose test as the base and
-a distinct working branch, or leave working branch blank for a generated name.
-Save creates a missing worktree and a desktop shortcut. Existing worktrees
-must belong to the selected repository and use the selected working branch.
-The launcher never switches, resets, rebases, commits or deletes your branches.
-Ignored files, dependencies and databases are not copied; set up a new worktree
-as needed. Use different development-server ports for parallel workers.
+Copy main projects & chats optionally imports independent local snapshots.
+Close the selected additional instance before copying; main can stay open.
+Copies retain local project folders and chat context. Repeating the import
+adds new chats, without overwriting conversations already continued here.
+There is no live synchronization. Cloud ChatGPT chats and open tabs cannot
+be imported. Project entries use the same disk folders, not duplicate files.
+No main credentials, browser state or databases are copied. Chat context can
+be sent to the selected account's model provider when you continue a chat.
 
-Save & launch opens the correct profile with a local project and new chat draft.
-The prompt is prefilled; press Send in Codex to begin. Alternatively enter an
-existing local chat ID/link. That chat must exist in the selected instance's
-own local history. A main-account chat cannot be opened by a different account.
-Launches pass links directly to the app executable, not Windows' global URL
-handler. The latest saved settings are used by each desktop shortcut.
+Consult main guidance and memories is optional and off by default.
+It adds guidance to read relevant main knowledge in place. This is an
+instruction rule, not a Windows security boundary. New memories stay separate.
 
-Your default window retains %USERPROFILE%\.codex and its desktop profile. Workers
-retain independent credentials and state. Shared main knowledge is optional
-and OFF by default for new workers. If enabled, workers consult main knowledge
-through global AGENTS instructions. Read context can enter that worker's model
-context. New worker memories are not merged automatically.
-Shared knowledge is instruction-based read-only use, not a Windows ACL boundary.
-Main global guidance is refreshed into workers at launch; memories are consulted
-in place. Start new chats to load changed global instructions.
+Updates preserve existing account folders and worktrees. Old branch/repo/
+startup settings are retired with an instances.json backup. Removing an
+instance removes its manager entry and keeps its files and shortcut.
 
 Storage: %LOCALAPPDATA%\OpenAI\CodexInstanceManager
-The app folder holds this launcher. instances.json holds names and project
-assignments. Additional profile folders contain credentials; do not commit them.
-Previous Account 2/3 folders under CodexMultiAccount are reused when found.
-Upgrades retire the previous Main manager entry and its generated desktop
-shortcut, with a registry backup. Your default Codex data stays in place.
-Removing an instance removes only its manager entry and keeps all files.
-Changes to a saved name can leave an old desktop shortcut; it still references
-the same instance ID. The refreshed shortcut has the new name.
+Profile folders contain private account data; do not publish them.
 
-The app's CODEX_ELECTRON_USER_DATA_PATH desktop override is undocumented and
-could change after updates. The launcher resolves the current Store app path
-each time. Browser sign-ins should be completed sequentially and each account
-checked in its own app window. First-time sign-in may delay startup navigation;
-run the shortcut again after login if necessary.
-
-This is an unofficial community tool, not affiliated with or endorsed by
-OpenAI. Simultaneous sign-ins and browser callbacks still need wider live
-testing. The launcher does not bypass account limits or permissions.
+This unofficial community tool uses undocumented desktop isolation and
+experimental import APIs. Codex updates can change compatibility.
+Complete initial account sign-ins one at a time and check each account.
+No prompts are submitted by the launcher or importer.
 
 Website: https://cim.rtzn.pt/
 Source: https://github.com/artizandevs/codex-instance-manager
-License: MIT (see LICENSE in the download)
-
-Supported new-chat links: https://learn.chatgpt.com/docs/app/commands
-Shared guidance: https://learn.chatgpt.com/docs/agent-configuration/agents-md
+License: MIT. Read README.md for details and compatibility limits.

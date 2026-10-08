@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $destination = Join-Path $env:LOCALAPPDATA 'OpenAI\CodexInstanceManager\app'
 [IO.Directory]::CreateDirectory($destination) | Out-Null
-foreach ($name in @('Core.ps1','Manager.ps1','UI.ps1','Open-Manager.cmd','README.txt')) {
+foreach ($name in @('Core.ps1','Library.ps1','Manager.ps1','UI.ps1','Open-Manager.cmd','README.txt')) {
     $source = Join-Path $PSScriptRoot $name
     $target = Join-Path $destination $name
     if ([IO.Path]::GetFullPath($source) -ne [IO.Path]::GetFullPath($target)) { Copy-Item -LiteralPath $source -Destination $target -Force }

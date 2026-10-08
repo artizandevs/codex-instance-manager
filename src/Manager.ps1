@@ -8,6 +8,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $script:DataRoot = $DataRoot
 . (Join-Path $PSScriptRoot 'Core.ps1')
+. (Join-Path $PSScriptRoot 'Library.ps1')
 try {
     Initialize-Store
     if ($Install) {

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — 2026-10-08
+
+- Simplify the manager to named instances, desktop shortcuts, and opening Codex.
+- Remove repository, branch, worktree, startup prompt, and chat-link setup. Existing folders and account data are preserved; the old registry is backed up.
+- Add optional local project/chat snapshot importing from the main window, with independent histories and repeat-import protection. Credentials, main databases, cloud chats, and open-tab layout are not imported.
+- Retain optional main guidance and memories, CIM manager branding, and plain black instance icons.
+
 ## 0.1.2 — 2026-10-08
 
 - Public distribution under Artizan, with a fresh repository and brand attribution.
