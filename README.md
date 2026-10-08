@@ -86,6 +86,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Build-Release.
 
 The static website is in `docs/`, published by GitHub Pages from `main:/docs`. Windows CI checks and packages the launcher; a `v*` tag publishes a release ZIP and checksum.
 
+The website uses self-hosted Umami for page views and download, navigation, FAQ, section, and scroll events. This is website-only analytics; the launcher remains telemetry-free. See [the event reference](docs/ANALYTICS.md) for properties and measurement limits.
+
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CHANGELOG.md](CHANGELOG.md). Licensed under [MIT](LICENSE).
 
 Upstream references: [Local projects](https://learn.chatgpt.com/docs/projects), [Codex state locations](https://learn.chatgpt.com/docs/config-file/environment-variables), and [global guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
