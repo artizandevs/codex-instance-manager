@@ -1,0 +1,21 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check and package
+        shell: powershell
+        run: |
+          .\scripts\Test.ps1
+          .\scripts\Build-Release.ps1
+      - name: Publish release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create $env:GITHUB_REF_NAME dist/Codex-Instance-Manager.zip dist/SHA256SUMS.txt --repo $env:GITHUB_REPOSITORY --title "Codex Instance Manager $env:GITHUB_REF_NAME" --notes-file CHANGELOG.md

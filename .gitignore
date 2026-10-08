@@ -1,0 +1,16 @@
+dist/
+work/
+instances.json
+profiles/
+worktrees/
+codex-home/
+desktop-data/
+auth.json
+*.sqlite*
+*.log
+*.tmp
+*.bak
+.env*
+!*.example
+.DS_Store
+Thumbs.db

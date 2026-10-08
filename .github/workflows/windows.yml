@@ -1,0 +1,24 @@
+name: Windows checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check source and core workflow
+        shell: powershell
+        run: .\scripts\Test.ps1
+      - name: Build release package
+        shell: powershell
+        run: .\scripts\Build-Release.ps1
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: Codex-Instance-Manager
+          path: |
+            dist/Codex-Instance-Manager.zip
+            dist/SHA256SUMS.txt
