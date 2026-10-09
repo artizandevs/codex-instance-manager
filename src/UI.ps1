@@ -13,10 +13,6 @@
    <Setter Property="Background" Value="#ECECEC"/><Setter Property="Foreground" Value="#171717"/><Setter Property="BorderBrush" Value="#ECECEC"/>
    <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="PrimaryBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="7" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="PrimaryBorder" Property="Background" Value="#D4D4D4"/></Trigger><Trigger Property="IsPressed" Value="True"><Setter Property="Opacity" Value="0.7"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="PrimaryBorder" Property="BorderBrush" Value="#949494"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
   </Style>
-  <Style TargetType="CheckBox">
-   <Setter Property="Foreground" Value="#BEBEBE"/><Setter Property="Margin" Value="0,8,0,8"/><Setter Property="Cursor" Value="Hand"/>
-   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox"><StackPanel Orientation="Horizontal"><Border x:Name="CheckBorder" Width="16" Height="16" CornerRadius="3" Background="#262626" BorderBrush="#757575" BorderThickness="1" VerticalAlignment="Center"><Path x:Name="CheckMark" Data="M 3,7 L 6,10 L 12,4" Stroke="#212121" StrokeThickness="1.8" Visibility="Collapsed" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/></Border><ContentPresenter Margin="10,0,0,0" VerticalAlignment="Center" RecognizesAccessKey="True"/></StackPanel><ControlTemplate.Triggers><Trigger Property="IsChecked" Value="True"><Setter TargetName="CheckBorder" Property="Background" Value="#E0E0E0"/><Setter TargetName="CheckBorder" Property="BorderBrush" Value="#E0E0E0"/><Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/></Trigger><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="CheckBorder" Property="BorderBrush" Value="#D0D0D0"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="CheckBorder" Property="BorderBrush" Value="#FFFFFF"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
-  </Style>
   <Style x:Key="FieldLabel" TargetType="TextBlock"><Setter Property="Foreground" Value="#B7B7B7"/><Setter Property="Margin" Value="0,24,0,8"/><Setter Property="FontSize" Value="12"/></Style>
   <Style TargetType="ListBoxItem">
    <Setter Property="Padding" Value="12,10"/><Setter Property="Margin" Value="0,2"/><Setter Property="Foreground" Value="#D6D6D6"/><Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -31,7 +27,7 @@
   <Grid.RowDefinitions><RowDefinition Height="72"/><RowDefinition Height="*"/><RowDefinition Height="52"/></Grid.RowDefinitions>
   <Grid.ColumnDefinitions><ColumnDefinition Width="232"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
   <Border Grid.RowSpan="3" Background="#171717" BorderBrush="#2E2E2E" BorderThickness="0,0,1,0"/>
-  <StackPanel Orientation="Horizontal" Margin="22,0" VerticalAlignment="Center"><Border Width="40" Height="40" Background="#B7B7B7" CornerRadius="8" Margin="0,0,12,0"><Image x:Name="BrandLogo" Margin="3"/></Border><StackPanel VerticalAlignment="Center"><TextBlock Text="Codex" FontSize="15" FontWeight="SemiBold"/><TextBlock Text="Instance Manager" FontSize="11" Foreground="#929292" Margin="0,2,0,0"/></StackPanel></StackPanel>
+  <StackPanel Orientation="Horizontal" Margin="22,0" VerticalAlignment="Center"><Image x:Name="BrandLogo" Width="40" Height="40" Margin="0,0,12,0" RenderOptions.BitmapScalingMode="HighQuality"/><StackPanel VerticalAlignment="Center"><TextBlock Text="Codex" FontSize="15" FontWeight="SemiBold"/><TextBlock Text="Instance Manager" FontSize="11" Foreground="#929292" Margin="0,2,0,0"/></StackPanel></StackPanel>
   <Border Grid.Column="1" BorderBrush="#343434" BorderThickness="0,0,0,1" Padding="32,0"><TextBlock Text="Manage instances" VerticalAlignment="Center" FontSize="14" Foreground="#C3C3C3"/></Border>
   <Grid Grid.Row="1" Margin="16,12,16,20"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
    <Button x:Name="NewButton" Content="+  New instance" Background="Transparent" BorderBrush="#3B3B3B" Margin="0,0,0,24" HorizontalContentAlignment="Left"/>
@@ -45,12 +41,7 @@
     <TextBlock Text="A separate space for another account." Foreground="#9E9E9E" Margin="0,8,0,0"/>
     <TextBlock Style="{StaticResource FieldLabel}" Text="Instance name"/><TextBox x:Name="NameField" MaxLength="80"/>
     <TextBlock Text="Save creates a desktop shortcut. Sign in on first launch." TextWrapping="Wrap" Foreground="#929292" FontSize="12" LineHeight="18" Margin="0,10,0,24"/>
-    <Border Background="#242424" BorderBrush="#3A3A3A" BorderThickness="1" CornerRadius="9" Padding="18"><StackPanel>
-     <TextBlock Text="Main context" FontSize="14" FontWeight="SemiBold"/>
-     <TextBlock Text="Copy local projects and chats into this instance. Copies continue independently. Cloud chats and open tabs stay with your main account." Foreground="#A4A4A4" TextWrapping="Wrap" FontSize="12" LineHeight="18" Margin="0,8,0,16"/>
-     <Button x:Name="ImportButton" Content="Copy main projects &amp; chats" HorizontalAlignment="Left"/>
-     <CheckBox x:Name="BrainCheck" Content="Consult main guidance and memories" Margin="0,18,0,0"/>
-    </StackPanel></Border>
+    <TextBlock Text="Set up projects, chats, and preferences inside each Codex window. This manager only names and launches instances." Foreground="#A4A4A4" TextWrapping="Wrap" FontSize="13" LineHeight="21" Margin="0,4,0,12"/>
     <TextBlock x:Name="HomeInfo" Foreground="#828282" FontSize="11" TextWrapping="Wrap" LineHeight="16" Margin="0,18,0,0"/>
    </StackPanel></ScrollViewer>
    <Grid Grid.Row="1" Margin="0,18,0,0"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><StackPanel Orientation="Horizontal"><Button x:Name="LaunchButton" Content="Open Codex" Style="{StaticResource PrimaryButton}"/><Button x:Name="SaveButton" Content="Save"/></StackPanel><Button x:Name="RemoveButton" Grid.Column="1" Content="Remove" Foreground="#C79A9A" Background="Transparent" BorderBrush="Transparent" Margin="0"/></Grid>
@@ -71,7 +62,8 @@ if (Test-Path -LiteralPath $logoPath) {
     $brandImage.UriSource = $logoUri
     $brandImage.EndInit(); $brandImage.Freeze()
     $script:Window.FindName('BrandLogo').Source = $brandImage
-    $script:Window.Icon = $brandImage
+    $iconPath = Join-Path (Split-Path -Parent $logoPath) 'manager-transparent.ico'
+    if (Test-Path -LiteralPath $iconPath) { $script:Window.Icon = [Windows.Media.Imaging.BitmapFrame]::Create((New-Object Uri($iconPath))) }
 }
 
 # Use Windows' dark frame without replacing native move/resize controls.
@@ -96,7 +88,7 @@ $script:Window.Add_SourceInitialized({
 })
 
 $script:Controls = @{}
-foreach ($name in @('NewButton','InstanceList','EditorTitle','NameField','BrainCheck','HomeInfo','SaveButton','LaunchButton','ImportButton','RemoveButton','StatusText')) { $script:Controls[$name] = $script:Window.FindName($name) }
+foreach ($name in @('NewButton','InstanceList','EditorTitle','NameField','HomeInfo','SaveButton','LaunchButton','RemoveButton','StatusText')) { $script:Controls[$name] = $script:Window.FindName($name) }
 $script:Current = $null; $script:Loading = $false
 function Set-Status([string]$Text, [switch]$ErrorState) {
     $script:Controls.StatusText.Text = $Text
@@ -115,7 +107,6 @@ function Load-Editor($Profile) {
     $script:Loading = $true; $script:Current = $Profile
     $script:Controls.EditorTitle.Text = $Profile.Name
     $script:Controls.NameField.Text = $Profile.Name
-    $script:Controls.BrainCheck.IsChecked = $Profile.ShareBrain
     $script:Controls.HomeInfo.Text = 'Saved privately in: ' + $Profile.CodexHome
     $script:Loading = $false
 }
@@ -129,12 +120,11 @@ function Read-Editor {
     $profile = $script:Current | ConvertTo-Json -Depth 8 | ConvertFrom-Json
     $profile.Name = $script:Controls.NameField.Text.Trim()
     if (-not $profile.Name) { throw 'Give the instance a name.' }
-    $profile.ShareBrain = $script:Controls.BrainCheck.IsChecked -eq $true
     $profile
 }
 function Save-Editor {
     $profile = Read-Editor
-    Save-Profile $profile; Prepare-Brain $profile; New-DesktopShortcut $profile
+    Save-Profile $profile; Prepare-Profile $profile; New-DesktopShortcut $profile
     Refresh-List $profile.Id; Load-Editor $profile
     $profile
 }
@@ -151,15 +141,6 @@ $script:Controls.NewButton.Add_Click({
 })
 $script:Controls.SaveButton.Add_Click({ Invoke-EditorAction { $profile = Save-Editor; Set-Status "Saved '$($profile.Name)' and its desktop shortcut." } })
 $script:Controls.LaunchButton.Add_Click({ Invoke-EditorAction { $profile = Save-Editor; Launch-Profile $profile; Set-Status "Opened '$($profile.Name)'. Sign into its account on first use." } })
-$script:Controls.ImportButton.Add_Click({ Invoke-EditorAction {
-    $profile = Save-Editor
-    $result = Import-MainLibrary $profile {
-        param($Text)
-        Set-Status $Text
-        [void]$script:Window.Dispatcher.Invoke([Action]{}, [Windows.Threading.DispatcherPriority]::Background)
-    }
-    Set-Status "Copied $($result.Chats) new local chats and $($result.Projects) projects. Skipped $($result.Skipped) unavailable chats. Open Codex to see them."
-} })
 $script:Controls.RemoveButton.Add_Click({
     try {
         $profile = $script:Current

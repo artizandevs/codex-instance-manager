@@ -6,7 +6,7 @@ $stage = Join-Path $dist ('stage-' + [guid]::NewGuid().ToString('N'))
 $package = Join-Path $stage 'Codex-Instance-Manager'
 New-Item -ItemType Directory -Path (Join-Path $package 'assets') -Force | Out-Null
 foreach ($file in Get-ChildItem -LiteralPath (Join-Path $root 'src') -File) { Copy-Item -LiteralPath $file.FullName -Destination $package }
-Copy-Item -LiteralPath (Join-Path $root 'assets\logo-black.png'),(Join-Path $root 'assets\logo.ico'),(Join-Path $root 'assets\logo-cim.png'),(Join-Path $root 'assets\logo-cim.ico') -Destination (Join-Path $package 'assets')
+Copy-Item -LiteralPath (Join-Path $root 'assets\logo-black.png'),(Join-Path $root 'assets\instance-transparent.ico'),(Join-Path $root 'assets\logo-cim.png'),(Join-Path $root 'assets\manager-transparent.ico') -Destination (Join-Path $package 'assets')
 Copy-Item -LiteralPath (Join-Path $root 'LICENSE'),(Join-Path $root 'README.md'),(Join-Path $root 'CHANGELOG.md') -Destination $package
 $zip = Join-Path $dist 'Codex-Instance-Manager.zip'
 Compress-Archive -LiteralPath $package -DestinationPath $zip -Force

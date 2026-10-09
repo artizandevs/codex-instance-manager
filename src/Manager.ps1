@@ -8,17 +8,17 @@ param(
 $ErrorActionPreference = 'Stop'
 $script:DataRoot = $DataRoot
 . (Join-Path $PSScriptRoot 'Core.ps1')
-. (Join-Path $PSScriptRoot 'Library.ps1')
 try {
     Initialize-Store
     if ($Install) {
-        foreach ($profile in @(Get-Store)) { Prepare-Brain $profile; New-DesktopShortcut $profile }
+        foreach ($profile in @(Get-Store)) { Prepare-Profile $profile; New-DesktopShortcut $profile }
         $shell = New-Object -ComObject WScript.Shell
         $shortcut = $shell.CreateShortcut((Join-Path ([Environment]::GetFolderPath('DesktopDirectory')) 'Codex Instance Manager.lnk'))
         $shortcut.TargetPath = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
         $shortcut.Arguments = '-NoProfile -STA -WindowStyle Hidden -ExecutionPolicy Bypass -File ' + (Quote-Argument (Join-Path $PSScriptRoot 'Manager.ps1'))
         $shortcut.WorkingDirectory = $PSScriptRoot
-        $iconPath = Join-Path $PSScriptRoot 'assets\logo-cim.ico'
+        $iconPath = Join-Path $PSScriptRoot 'assets\manager-transparent.ico'
+        if (-not (Test-Path -LiteralPath $iconPath)) { $iconPath = Join-Path (Split-Path -Parent $PSScriptRoot) 'assets\manager-transparent.ico' }
         $shortcut.IconLocation = $(if (Test-Path -LiteralPath $iconPath) { $iconPath + ',0' } else { (Get-AppExecutable) + ',0' })
         $shortcut.Save()
         Write-Output 'Installed the manager and saved instance shortcuts. No Codex windows opened.'

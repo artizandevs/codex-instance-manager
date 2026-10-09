@@ -15,7 +15,7 @@ Analytics is confined to `docs/`; the desktop launcher does not include this tra
 | `license_click` | `location` (`footer`) | Someone opened the license. |
 | `issue_click` | `location` (`footer`) | Someone opened the issue tracker. |
 | `release_click` | `location` (`footer`) | Someone opened the release list. |
-| `faq_open` | `question` (`official`, `account-isolation`, `chat-import`, `existing-data`, `shared-memory`, `telemetry`) | Someone expanded an answer. Closing does not count; reopening counts again. The initially open answer does not count on page load. |
+| `faq_open` | `question` (`official`, `account-isolation`, `instance-setup`, `existing-data`, `instance-settings`, `telemetry`) | Someone expanded an answer. Closing does not count; reopening counts again. The initially open answer does not count on page load. |
 | `section_view` | `section` (`preview`, `features`, `setup`, `questions`, `closing`) | At least 15% of a section entered the viewport, once per page load. |
 | `scroll_depth` | `percent` (25, 50, 75, 100; number) | The visitor reached this proportion of the available scroll distance, once per page load. Jumping down the page also crosses thresholds. |
 

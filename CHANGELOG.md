@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-10-09
+
+- Keep the manager focused on naming instances, creating desktop shortcuts, and opening Codex.
+- Remove chat/project importing, shared guidance controls, and the importer backend.
+- Preserve existing logins, chats, and user configuration on update. Back up the previous registry and remove only the manager's marked shared-guidance block.
+- Replace shortcut icons with transparent, high-quality versions at seven Windows icon sizes. Keep the plain black mark for instances and the white CIM overlay for the manager.
+- Refresh the app preview, website, and installation documentation.
+
 ## 0.2.2 — 2026-10-08
 
 - Place white CIM text directly over the black knot in manager branding and its desktop icon.
